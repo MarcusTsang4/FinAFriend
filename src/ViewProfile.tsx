@@ -4,8 +4,9 @@ import { Profile } from './Profile';
 import ScheduleLunchButton from './ScheduleLunchButton';
 
 interface IProfileProps {
-    onButtonClick: (page: pages) => void,
-    selectedProfile: Profile
+    onButtonClick: (page: pages) => void;
+    selectedProfile: Profile;
+    onProfileSelect: (profile: Profile) => void;
 }
 
 export default class ViewProfile extends React.Component<IProfileProps> {
@@ -31,6 +32,7 @@ export default class ViewProfile extends React.Component<IProfileProps> {
 
     }
     public routeToSchedulingPage = () => {
+        this.props.onProfileSelect(this.props.selectedProfile);
         this.props.onButtonClick(pages.scheduling);
     }
 }
