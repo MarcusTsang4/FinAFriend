@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FormControl, FormGroup } from 'react-bootstrap';
+import { Col, ControlLabel, FormControl, FormGroup, Row } from 'react-bootstrap';
 import LunchScheduled from './LunchScheduled';
 import { Profile } from './Profile';
 
@@ -14,15 +14,37 @@ export default class Scheduling extends React.Component<ISchedulingProps> {
     public render() {
         return <div className="container">
             <h2> Schedule Lunch with a Fin! </h2>
-            <img src={this.props.selectedProfile.imageUrl} />
-            <h3>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</h3>
-            <h3>Office: {this.props.selectedProfile.office}</h3>
-            <h3>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </h3>
+            <img src={this.props.selectedProfile.imageUrl} width="15%" />
+            <Row>
+                <Col md={6}>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</Col>
+            </Row>
+            <Row>
+                <Col md={6}>Office: {this.props.selectedProfile.office}</Col>
+            </Row>
+            <Row>
+                <Col md={6}>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </Col>
+            </Row>
             <form>
                 <FormGroup controlId={"partner"} >
-                    <FormControl type={"text"} placeholder={"Location"} /> <br />
-                    <FormControl type={"text"} placeholder={"Date"} /> <br />
-                    <FormControl type={"text"} placeholder={"Time"} /> <br />
+                    <Row>
+                        <Col md={6}>
+                            <ControlLabel>Location</ControlLabel>
+                            <FormControl type={"text"} placeholder={"Enter Location"} />
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md={6}>
+                            <ControlLabel>Date</ControlLabel>
+                            <FormControl type={"text"} placeholder={"Enter Date"} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={6}>
+                            <ControlLabel>Time</ControlLabel>
+                            <FormControl type={"text"} placeholder={"Enter Time"} />
+                        </Col>
+                    </Row>
                 </FormGroup>
                 <LunchScheduled />
             </form>
