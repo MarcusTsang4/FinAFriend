@@ -13,22 +13,14 @@ interface ITerm {
 export default class Layout extends React.Component<IPageProps, ITerm> {
     constructor(props: any) {
         super(props);
-<<<<<<< HEAD
-        this.state = {searchTerm: '', foundItems:[]};
-=======
-        this.state = { searchTerm: '' };
->>>>>>> b11d46a34764d09e4e8b96d494c7c0a27f9d8f09
+        this.state = { searchTerm: '', foundItems: [] };
     }
     public onChange = (arg: React.ChangeEvent<HTMLInputElement>) => {
         const v = arg.target.value;
-<<<<<<< HEAD
-        this.setState({searchTerm: v, foundItems: this.find(v)});
+        this.setState({ searchTerm: v, foundItems: this.find(v) });
     }
     public find(value: string): string[] {
         return []
-=======
-        this.setState({ searchTerm: v });
->>>>>>> b11d46a34764d09e4e8b96d494c7c0a27f9d8f09
     }
     public render() {
         return (

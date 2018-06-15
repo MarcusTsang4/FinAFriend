@@ -148,31 +148,6 @@ class App extends React.Component<{}, IPageState> {
     }
     return undefined;
   }
-<<<<<<< HEAD
-  public getDefaultSelectedProfile() {
-    return {
-      cohort: "C1",
-      firstName: "Marcus",
-      hobbies: ["Soccer", "Python"],
-      lastName: "Tsang",
-      office: "New York",
-      password: "password",
-      userId: "marcus.tsang@parivedasolutions.com"
-    }
-  }
-  public getDefaultCurrentProfile() {
-    return {
-      cohort: "C2",
-      firstName: "Lane",
-      hobbies: ["Baseball", "C#"],
-      lastName: "Ferrell",
-      office: "Atlanta",
-      password: "password",
-      userId: "lane.ferrell@parivedasolutions.com"
-    }
-  }
-=======
->>>>>>> b11d46a34764d09e4e8b96d494c7c0a27f9d8f09
 
   public setSelectedProfile = (profile: Profile) => {
     this.setState({ selectedProfile: profile });

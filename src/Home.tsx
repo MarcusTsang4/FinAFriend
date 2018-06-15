@@ -1,9 +1,4 @@
 import * as React from 'react';
-<<<<<<< HEAD
-import './App.css';
-
-export default class Home extends React.Component {
-=======
 import { pages } from './pages';
 import { Profile } from './Profile';
 import ProfileGridItem from './ProfileGridItem';
@@ -13,7 +8,6 @@ interface IHomeProfileProps {
     onProfileSelect: (profile: Profile) => void;
 }
 export default class Home extends React.Component<IHomeProfileProps> {
->>>>>>> b11d46a34764d09e4e8b96d494c7c0a27f9d8f09
     public render() {
         return (
             <div className="container">
