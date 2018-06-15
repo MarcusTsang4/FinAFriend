@@ -7,18 +7,21 @@ interface IPageProps {
 }
 interface ITerm {
     searchTerm: string;
+    foundItems: string[];
 }
 
 export default class Layout extends React.Component<IPageProps, ITerm> {
     constructor(props: any) {
         super(props);
-        this.state = {searchTerm: ''};
+        this.state = {searchTerm: '', foundItems:[]};
     }
     public onChange = (arg: React.ChangeEvent<HTMLInputElement>) =>{
         const v = arg.target.value;
-        this.setState({searchTerm: v});
+        this.setState({searchTerm: v, foundItems: this.find(v)});
     }
-
+    public find(value: string): string[] {
+        return []
+    }
     public render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">

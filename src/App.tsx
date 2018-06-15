@@ -107,10 +107,10 @@ class App extends React.Component<{}, IPageState> {
       cohort: "C1",
       firstName: "Marcus",
       hobbies: ["Soccer", "Python"],
-      lastName: "Tseng",
+      lastName: "Tsang",
       office: "New York",
       password: "password",
-      userId: "marcus.tseng@parivedasolutions.com"
+      userId: "marcus.tsang@parivedasolutions.com"
     }
   }
   public getDefaultCurrentProfile() {
