@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { pages } from './pages';
 import { Profile } from './Profile';
 import ScheduleLunchButton from './ScheduleLunchButton';
@@ -21,12 +22,18 @@ export default class ViewProfile extends React.Component<IProfileProps> {
                         <img src={this.props.selectedProfile.imageUrl} width="15%" alt="profilepic" className="rounded mx-auto d-block" />
                     </p>
                 </div>
-                <h2>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</h2>
-                <h3>Office: {this.props.selectedProfile.office}</h3>
-                <h3>Cohort: {this.props.selectedProfile.cohort} </h3>
-                <h3>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </h3>
-
-                <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
+                <Row>
+                    <Col>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</Col>
+                </Row>
+                <Row>
+                    <Col>Cohort: {this.props.selectedProfile.cohort} </Col>
+                </Row>
+                <Row>
+                    <Col>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </Col>
+                </Row>
+                <Row>
+                    <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
+                </Row>
             </div>
         );
 
