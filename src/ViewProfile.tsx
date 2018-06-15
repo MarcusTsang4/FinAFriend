@@ -26,7 +26,7 @@ export default class ViewProfile extends React.Component<IProfileProps> {
                 <h3>Cohort: {this.props.selectedProfile.cohort} </h3>
                 <h3>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </h3>
 
-                <ScheduleLunchButton onClickButton={this.routeToSchedulingPage} />
+                <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
             </div>
         );
 

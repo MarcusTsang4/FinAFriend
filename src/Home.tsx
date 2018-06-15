@@ -25,7 +25,7 @@ export default class Home extends React.Component<IHomeProfileProps> {
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Client</th>
+                                                <th />
                                                 <th>Hobbies</th>
                                                 <th>Office</th>
                                                 <th />
@@ -33,11 +33,11 @@ export default class Home extends React.Component<IHomeProfileProps> {
                                         </thead>
                                         <tbody>
 
-                                            <ProfileGridItem profile={this.props.profiles[0]} onButtonClick={this.routeToScheduling} onProfileSelect={this.setSelectedProfile} />
-                                            <ProfileGridItem profile={this.props.profiles[1]} onButtonClick={this.routeToScheduling} onProfileSelect={this.setSelectedProfile} />
-                                            <ProfileGridItem profile={this.props.profiles[2]} onButtonClick={this.routeToScheduling} onProfileSelect={this.setSelectedProfile} />
-                                            <ProfileGridItem profile={this.props.profiles[3]} onButtonClick={this.routeToScheduling} onProfileSelect={this.setSelectedProfile} />
-                                            <ProfileGridItem profile={this.props.profiles[4]} onButtonClick={this.routeToScheduling} onProfileSelect={this.setSelectedProfile} />
+                                            <ProfileGridItem profile={this.props.profiles[0]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile} />
+                                            <ProfileGridItem profile={this.props.profiles[1]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile} />
+                                            <ProfileGridItem profile={this.props.profiles[2]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile} />
+                                            <ProfileGridItem profile={this.props.profiles[3]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile} />
+                                            <ProfileGridItem profile={this.props.profiles[4]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile} />
 
                                         </tbody>
                                     </table>
@@ -49,8 +49,8 @@ export default class Home extends React.Component<IHomeProfileProps> {
             </div>
         );
     }
-    public routeToScheduling = () => {
-        this.props.onButtonClick(pages.scheduling);
+    public routeToPage = (page: pages) => {
+        this.props.onButtonClick(page);
     }
     public setSelectedProfile = (profile: Profile) => {
         this.props.onProfileSelect(profile);
