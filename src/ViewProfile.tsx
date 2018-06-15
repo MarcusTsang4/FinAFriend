@@ -17,7 +17,7 @@ export default class ViewProfile extends React.Component<IProfileProps> {
             <div className="container">
                 <div className="img">
                     <p>
-                        <img src="https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg" width="15%" alt="profilepic" className="rounded mx-auto d-block" />
+                        <img src={this.props.selectedProfile.imageUrl} width="15%" alt="profilepic" className="rounded mx-auto d-block" />
                     </p>
                 </div>
                 <h2>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</h2>

@@ -38,7 +38,7 @@ class App extends React.Component<{}, IPageState> {
         {this.renderLogin()}
         {this.renderLayout()}
         {this.renderHome()}
-        {this.renderProfile()}
+        {this.renderViewProfile()}
         {this.renderEditProfile()}
         {this.renderLunchHistory()}
         {this.renderScheduling()}
@@ -67,13 +67,10 @@ class App extends React.Component<{}, IPageState> {
     return undefined;
   }
 
-  public renderProfile() {
+  public renderViewProfile() {
     if (this.state.currentPage === pages.viewProfile) {
-      if (this.state.currentProfile !== this.state.selectedProfile) {
+      return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.selectedProfile} /> </div>
 
-        return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.selectedProfile} /> </div>
-      }
-      return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.currentProfile} /> </div>
     }
     return undefined;
   }
@@ -98,7 +95,7 @@ class App extends React.Component<{}, IPageState> {
   }
   public renderEditProfile() {
     if (this.state.currentPage === pages.editProfile) {
-      return <div><EditProfile currentProfile={this.state.selectedProfile} /></div>
+      return <div><EditProfile currentProfile={this.state.currentProfile} /></div>
     }
     return undefined;
   }
@@ -107,6 +104,7 @@ class App extends React.Component<{}, IPageState> {
       cohort: "C1",
       firstName: "Marcus",
       hobbies: ["Soccer", "Python"],
+      imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
       lastName: "Tseng",
       office: "New York",
       password: "password",
@@ -118,6 +116,7 @@ class App extends React.Component<{}, IPageState> {
       cohort: "C2",
       firstName: "Lane",
       hobbies: ["Baseball", "C#"],
+      imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
       lastName: "Ferrell",
       office: "Atlanta",
       password: "password",

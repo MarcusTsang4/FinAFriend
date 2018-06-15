@@ -14,6 +14,7 @@ export default class Scheduling extends React.Component<ISchedulingProps> {
     public render() {
         return <div className="container">
             <h2> Schedule Lunch with a Fin! </h2>
+            <img src={this.props.selectedProfile.imageUrl} />
             <h3>Name: {this.props.selectedProfile.firstName}</h3>
             <h3>Office: {this.props.selectedProfile.office}</h3>
             <h3>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </h3>
