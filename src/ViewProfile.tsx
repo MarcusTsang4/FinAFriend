@@ -25,19 +25,19 @@ export default class ViewProfile extends React.Component<IProfileProps> {
                     <Col lg={10} md={6} sm={12}>
                         <Row>
 
-                            <Col lg={12} md={12} sm={12}>
+                            <h4>
                                 Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}
-                            </Col>
+                            </h4>
                         </Row>
                         <Row>
-                            <Col lg={12} md={12} sm={12}>
+                            <h4>
                                 Cohort: {this.props.selectedProfile.cohort}
-                            </Col>
+                            </h4>
                         </Row>
                         <Row>
-                            <Col lg={12} md={12} sm={12}>
+                            <h4>
                                 Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)}
-                            </Col>
+                            </h4>
                         </Row>
                     </Col>
 
@@ -46,7 +46,9 @@ export default class ViewProfile extends React.Component<IProfileProps> {
 
 
                 <Row>
-                    <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
+                    <Col lg={12} md={12} sm={12}>
+                        <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
+                    </Col>
                 </Row>
             </div>
         );
