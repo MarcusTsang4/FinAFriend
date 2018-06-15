@@ -10,6 +10,7 @@ interface IEditProfileState {
     lastName: string,
     password: string,
     cohort: string,
+    office: string;
     hobbies: string[]
 }
 
@@ -23,6 +24,7 @@ export default class EditProfile extends React.Component<IEditProfileProps, IEdi
             firstName: this.props.currentProfile.firstName,
             hobbies: this.props.currentProfile.hobbies,
             lastName: this.props.currentProfile.lastName,
+            office: this.props.currentProfile.office,
             password: this.props.currentProfile.password,
         }
     }
@@ -55,6 +57,10 @@ export default class EditProfile extends React.Component<IEditProfileProps, IEdi
                     <FormGroup controlId={"form.Cohort"}>
                         <ControlLabel>Cohort</ControlLabel>
                         <FormControl type="text" placeholder={this.state.cohort} />
+                    </FormGroup>
+                    <FormGroup controlId={"form.Office"}>
+                        <ControlLabel>Office</ControlLabel>
+                        <FormControl type="text" placeholder={this.state.office} />
                     </FormGroup>
                     <FormGroup controlId={"formHobbies"}>
                         <ControlLabel>Hobbies</ControlLabel>

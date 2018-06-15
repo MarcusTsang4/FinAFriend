@@ -138,7 +138,7 @@ class App extends React.Component<{}, IPageState> {
   }
   public renderLayout() {
     if (this.state.currentPage !== pages.login) {
-      return <div><Layout onClickMenu={this.handlePageChange} /> </div>
+      return <div><Layout onClickMenu={this.handlePageChange } profiles={this.dummyProfiles} onProfileSelect={this.setSelectedProfile}/> </div>
     }
     return undefined;
   }

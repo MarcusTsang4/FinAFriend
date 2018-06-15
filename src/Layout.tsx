@@ -1,9 +1,13 @@
 import * as React from 'react';
 import './Layout.css';
 import { pages } from './pages';
+import { Profile } from './Profile';
+import SearchedItem from './searchedItem';
 
 interface IPageProps {
+    profiles: Profile[];
     onClickMenu: (page: pages) => void;
+    onProfileSelect: (profile: Profile) => void;
 }
 interface ITerm {
     searchTerm: string;
@@ -26,19 +30,34 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
             return [];
         }
         for ( const item of Object(names) ){
-            if(item.includes(value)){
+            if(item.toLowerCase().startsWith(value.toLocaleLowerCase())){
                 final.push(item);
             }
         }
         return final;
+    }
+    public profileIndex(value: string): any {
+        if (value === "Lane"){
+            return 0;
+        } else if (value === "Marcus"){
+            return 1;
+        } else if (value === "Matt"){
+            return 2;
+        } else if (value === "Wesley"){
+            return 3;
+        } else if (value === "Sydney"){
+            return 4;
+        } else{ 
+            return;
+        }
     }
     public render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <a className="navbar-brand" href="#" onClick={this.selectHome}>Fin-A-Friend</a>
                 <div>
-                    <input value={this.state.searchTerm} onChange={this.onChange} />
-                    {this.state.foundItems.map(x =><div key={x}>{x}</div>)}
+                    <input value={this.state.searchTerm} style={{color:"black"}} onChange={this.onChange} />
+                    {this.state.foundItems.map(x =><div key={x}>{x} <SearchedItem profile={this.props.profiles[this.profileIndex(x)]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile}/></div>)}
                 </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
@@ -70,5 +89,11 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
     }
     public selectProfile = () => {
         this.props.onClickMenu(pages.editProfile);
+    }
+    public routeToPage = (page: pages) => {
+        this.props.onClickMenu(page);
+    }
+    public setSelectedProfile = (profile: Profile) => {
+        this.props.onProfileSelect(profile);
     }
 }
