@@ -3,10 +3,12 @@ import { Button } from 'react-bootstrap';
 import { Form, FormControl, Table } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { pages } from './pages';
+import { Profile } from './Profile';
 import ScheduleLunchButton from './ScheduleLunchButton';
 
 interface ILunchHistoryProps {
     onButtonClick: (page: pages) => void;
+    currentUser: Profile;
 }
 
 export default class LunchHistory extends React.Component<ILunchHistoryProps> {
@@ -39,7 +41,7 @@ export default class LunchHistory extends React.Component<ILunchHistoryProps> {
                             <td>1/1/2010</td>
                             <td>Atlanta</td>
                             <td>Yes</td>
-                            <td><ScheduleLunchButton onClickButton={this.routeToScheduling} /></td>
+                            <td><ScheduleLunchButton onClickScheduleLunchButton={this.routeToScheduling} /></td>
                         </tr>
                     </tbody>
                 </Table>

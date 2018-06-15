@@ -24,12 +24,61 @@ interface IPageState {
 }
 
 class App extends React.Component<{}, IPageState> {
+  private dummyProfiles = [{
+    cohort: "C2",
+    firstName: "Lane",
+    hobbies: ["Baseball", "C#"],
+    imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
+    lastName: "Ferrell",
+    office: "Atlanta",
+    password: "password",
+    userId: "lane.ferrell@parivedasolutions.com"
+  }, {
+    cohort: "C1",
+    firstName: "Marcus",
+    hobbies: ["Soccer", "Python"],
+    imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
+    lastName: "Tseng",
+    office: "New York",
+    password: "password",
+    userId: "marcus.tseng@parivedasolutions.com"
+  },
+  {
+    cohort: "C1",
+    firstName: "Matt",
+    hobbies: ["Football", "MVC"],
+    imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
+    lastName: "Loft",
+    office: "Dallas",
+    password: "password",
+    userId: "matt.loft@parivedasolutions.com"
+  },
+  {
+    cohort: "C2",
+    firstName: "Wesley",
+    hobbies: ["Basketball", "C#"],
+    imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
+    lastName: "Evans",
+    office: "Atlanta",
+    password: "password",
+    userId: "wesley.evans@parivedasolutions.com"
+  },
+  {
+    cohort: "C1",
+    firstName: "Sydney",
+    hobbies: ["Coding", "Java"],
+    imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
+    lastName: "Knox",
+    office: "Chicago",
+    password: "password",
+    userId: "sydney.knox@parivedasolutions.com"
+  }];
   constructor(props: {}) {
     super(props);
     this.state = {
       currentPage: pages.home,
-      currentProfile: this.getDefaultCurrentProfile(),
-      selectedProfile: this.getDefaultSelectedProfile()
+      currentProfile: this.dummyProfiles[0],
+      selectedProfile: this.dummyProfiles[0]
     }
   }
   public render() {
@@ -38,7 +87,7 @@ class App extends React.Component<{}, IPageState> {
         {this.renderLogin()}
         {this.renderLayout()}
         {this.renderHome()}
-        {this.renderProfile()}
+        {this.renderViewProfile()}
         {this.renderEditProfile()}
         {this.renderLunchHistory()}
         {this.renderScheduling()}
@@ -54,7 +103,7 @@ class App extends React.Component<{}, IPageState> {
   public renderHome() {
     if (this.state.currentPage === pages.home) {
       return (
-        <div className="container"> <Home /> </div>
+        <div className="container"> <Home profiles={this.dummyProfiles} onButtonClick={this.handlePageChange} onProfileSelect={this.setSelectedProfile} /> </div>
       );
     }
     return undefined;
@@ -62,18 +111,15 @@ class App extends React.Component<{}, IPageState> {
 
   public renderLunchHistory() {
     if (this.state.currentPage === pages.lunchHistory) {
-      return <div><LunchHistory onButtonClick={this.handlePageChange} /></div>
+      return <div><LunchHistory onButtonClick={this.handlePageChange} currentUser={this.state.currentProfile} /></div>
     }
     return undefined;
   }
 
-  public renderProfile() {
+  public renderViewProfile() {
     if (this.state.currentPage === pages.viewProfile) {
-      if (this.state.currentProfile !== this.state.selectedProfile) {
+      return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.selectedProfile} onProfileSelect={this.setSelectedProfile} /> </div>
 
-        return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.selectedProfile} /> </div>
-      }
-      return <div><ViewProfile onButtonClick={this.handlePageChange} selectedProfile={this.state.currentProfile} /> </div>
     }
     return undefined;
   }
@@ -98,31 +144,9 @@ class App extends React.Component<{}, IPageState> {
   }
   public renderEditProfile() {
     if (this.state.currentPage === pages.editProfile) {
-      return <div><EditProfile currentProfile={this.state.selectedProfile} /></div>
+      return <div><EditProfile currentProfile={this.state.currentProfile} /></div>
     }
     return undefined;
-  }
-  public getDefaultSelectedProfile() {
-    return {
-      cohort: "C1",
-      firstName: "Marcus",
-      hobbies: ["Soccer", "Python"],
-      lastName: "Tseng",
-      office: "New York",
-      password: "password",
-      userId: "marcus.tseng@parivedasolutions.com"
-    }
-  }
-  public getDefaultCurrentProfile() {
-    return {
-      cohort: "C2",
-      firstName: "Lane",
-      hobbies: ["Baseball", "C#"],
-      lastName: "Ferrell",
-      office: "Atlanta",
-      password: "password",
-      userId: "lane.ferrell@parivedasolutions.com"
-    }
   }
 
   public setSelectedProfile = (profile: Profile) => {

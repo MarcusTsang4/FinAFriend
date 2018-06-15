@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { pages } from './pages';
 
 interface IScheduleButtonProps {
-    onClickButton: (page: pages) => void;
+    onClickScheduleLunchButton: (page: pages) => void;
 }
 
 export default class ScheduleLunchButton extends React.Component<IScheduleButtonProps> {
@@ -13,11 +13,11 @@ export default class ScheduleLunchButton extends React.Component<IScheduleButton
     public render() {
         return (
             <div>
-                <Button bsStyle={"primary"} onClick={this.handleClick}>Schedule Lunch!</Button>
+                <Button bsStyle={"primary"} onClick={this.handleClick}><i className="fas fa-calendar-alt" /> Schedule Lunch!</Button>
             </div>
         );
     }
     public handleClick = () => {
-        this.props.onClickButton(pages.scheduling);
+        this.props.onClickScheduleLunchButton(pages.scheduling);
     }
 }

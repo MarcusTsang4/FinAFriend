@@ -12,18 +12,18 @@ interface ITerm {
 export default class Layout extends React.Component<IPageProps, ITerm> {
     constructor(props: any) {
         super(props);
-        this.state = {searchTerm: ''};
+        this.state = { searchTerm: '' };
     }
-    public onChange = (arg: React.ChangeEvent<HTMLInputElement>) =>{
+    public onChange = (arg: React.ChangeEvent<HTMLInputElement>) => {
         const v = arg.target.value;
-        this.setState({searchTerm: v});
+        this.setState({ searchTerm: v });
     }
 
     public render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <a className="navbar-brand" href="#" onClick={this.selectHome}>Fin-A-Friend</a>
-                <input value={this.state.searchTerm} onChange={this.onChange}/>
+                <input value={this.state.searchTerm} onChange={this.onChange} />
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
@@ -40,7 +40,7 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
                                 <a className="dropdown-item" href="#" onClick={this.selectProfile}><i className="fas fa-user" /> My Profile</a>
                                 <a className="dropdown-item" href="#" onClick={this.selectLunchHistory}><i className="fas fa-history" /> Lunch History</a>
                                 <div className="dropdown-divider" />
-                                <a className="dropdown-item" href="#"><i className="fas fa-wrench" /> Manage Account</a>
+                                <a className="dropdown-item" href="#"><i className="fas fa-sign-out-alt" /> Logout</a>
                             </div>
                         </li>
                     </ul>
