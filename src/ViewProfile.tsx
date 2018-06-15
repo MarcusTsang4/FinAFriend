@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { pages } from './pages';
 import { Profile } from './Profile';
 import ScheduleLunchButton from './ScheduleLunchButton';
 
 interface IProfileProps {
-    onButtonClick: (page: pages) => void,
-    selectedProfile: Profile
+    onButtonClick: (page: pages) => void;
+    selectedProfile: Profile;
+    onProfileSelect: (profile: Profile) => void;
 }
 
 export default class ViewProfile extends React.Component<IProfileProps> {
@@ -15,22 +17,43 @@ export default class ViewProfile extends React.Component<IProfileProps> {
     public render() {
         return (
             <div className="container">
-                <div className="img">
-                    <p>
-                        <img src="https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg" width="15%" alt="profilepic" className="rounded mx-auto d-block" />
-                    </p>
-                </div>
-                <h2>Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}</h2>
-                <h3>Office: {this.props.selectedProfile.office}</h3>
-                <h3>Cohort: {this.props.selectedProfile.cohort} </h3>
-                <h3>Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)} </h3>
 
-                <ScheduleLunchButton onClickButton={this.routeToSchedulingPage} />
+                <Row>
+                    <Col lg={2} md={6} sm={12}>
+                        <img src={this.props.selectedProfile.imageUrl} width="75%" alt="profilepic" className="rounded mx-auto d-block" />
+                    </Col>
+                    <Col lg={10} md={6} sm={12}>
+                        <Row>
+
+                            <Col lg={12} md={12} sm={12}>
+                                Name: {this.props.selectedProfile.firstName} {this.props.selectedProfile.lastName}
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={12} md={12} sm={12}>
+                                Cohort: {this.props.selectedProfile.cohort}
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={12} md={12} sm={12}>
+                                Hobbies: {this.props.selectedProfile.hobbies.map(item => <span key={item}>{item} </span>)}
+                            </Col>
+                        </Row>
+                    </Col>
+
+                </Row>
+
+
+
+                <Row>
+                    <ScheduleLunchButton onClickScheduleLunchButton={this.routeToSchedulingPage} />
+                </Row>
             </div>
         );
 
     }
     public routeToSchedulingPage = () => {
+        this.props.onProfileSelect(this.props.selectedProfile);
         this.props.onButtonClick(pages.scheduling);
     }
 }

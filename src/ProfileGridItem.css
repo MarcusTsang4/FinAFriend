@@ -1,0 +1,9 @@
+.link-class {
+        color: #2b35c5;
+    text-decoration: underline;
+}
+.link-class:hover{
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

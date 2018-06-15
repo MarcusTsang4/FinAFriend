@@ -6,4 +6,5 @@ export class Profile {
     public cohort: string;
     public office: string;
     public hobbies: string[];
+    public imageUrl: string;
 }
