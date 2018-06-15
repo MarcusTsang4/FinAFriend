@@ -40,7 +40,7 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
                                 <a className="dropdown-item" href="#" onClick={this.selectProfile}><i className="fas fa-user" /> My Profile</a>
                                 <a className="dropdown-item" href="#" onClick={this.selectLunchHistory}><i className="fas fa-history" /> Lunch History</a>
                                 <div className="dropdown-divider" />
-                                <a className="dropdown-item" href="#"><i className="fas fa-wrench" /> Manage Account</a>
+                                <a className="dropdown-item" href="#"><i className="fas fa-sign-out-alt" /> Logout</a>
                             </div>
                         </li>
                     </ul>

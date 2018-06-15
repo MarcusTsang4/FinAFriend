@@ -16,7 +16,7 @@ export default class Home extends React.Component<IHomeProfileProps> {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h4 className="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">New Fin Suggestions</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Meet a new Fin today!</a>
                                 </h4>
                             </div>
                             <div id="collapseThree" className="panel-collapse collapse in">
