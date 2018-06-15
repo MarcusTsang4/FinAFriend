@@ -56,7 +56,7 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <a className="navbar-brand" href="#" onClick={this.selectHome}>Fin-A-Friend</a>
                 <div>
-                    <input value={this.state.searchTerm} style={{color:"black"}} onChange={this.onChange} />
+                    <input value={this.state.searchTerm} style={{color:"black"}} onChange={this.onChange} placeholder="Search Fins"/>
                     {this.state.foundItems.map(x =><div key={x}>{x} <SearchedItem profile={this.props.profiles[this.profileIndex(x)]} onRouteToPage={this.routeToPage} onProfileSelect={this.setSelectedProfile}/></div>)}
                 </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
