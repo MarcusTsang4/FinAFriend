@@ -20,14 +20,26 @@ export default class Layout extends React.Component<IPageProps, ITerm> {
         this.setState({ searchTerm: v, foundItems: this.find(v) });
     }
     public find(value: string): string[] {
-        return []
+        const final = [];
+        const names = ["Lane", "Marcus", "Matt", "Wesley", "Sydney"];
+        if (value === ""){
+            return [];
+        }
+        for ( const item of Object(names) ){
+            if(item.includes(value)){
+                final.push(item);
+            }
+        }
+        return final;
     }
     public render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-primary">
                 <a className="navbar-brand" href="#" onClick={this.selectHome}>Fin-A-Friend</a>
-                <input value={this.state.searchTerm} onChange={this.onChange} />
-
+                <div>
+                    <input value={this.state.searchTerm} onChange={this.onChange} />
+                    {this.state.foundItems.map(x =><div key={x}>{x}</div>)}
+                </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>

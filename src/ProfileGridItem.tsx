@@ -3,6 +3,7 @@ import { pages } from './pages';
 import { Profile } from './Profile';
 import './ProfileGridItem.css';
 import ScheduleLunchButton from './ScheduleLunchButton';
+
 interface IProfileGridItemProp {
     profile: Profile;
     onRouteToPage: (page: pages) => void;

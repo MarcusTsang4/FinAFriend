@@ -38,7 +38,7 @@ class App extends React.Component<{}, IPageState> {
     firstName: "Marcus",
     hobbies: ["Soccer", "Python"],
     imageUrl: "https://pbs.twimg.com/profile_images/890822100306604032/3BWD1Ec9_400x400.jpg",
-    lastName: "Tseng",
+    lastName: "Tsang",
     office: "New York",
     password: "password",
     userId: "marcus.tseng@parivedasolutions.com"
