@@ -13,7 +13,7 @@ export default class SearchedItem extends React.Component<ISearchedItemProp> {
     }
     public render() {
         return (
-            <div onClick={this.routeToProfile}>View Profile</div>
+            <span onClick={this.routeToProfile}> - View Profile</span>
         );
     }
 
