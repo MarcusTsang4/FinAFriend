@@ -103,7 +103,7 @@ class App extends React.Component<{}, IPageState> {
   public renderHome() {
     if (this.state.currentPage === pages.home) {
       return (
-        <div className="container"> <Home /> </div>
+        <div className="container"> <Home profiles={this.dummyProfiles} onButtonClick={this.handlePageChange} onProfileSelect={this.setSelectedProfile} /> </div>
       );
     }
     return undefined;
