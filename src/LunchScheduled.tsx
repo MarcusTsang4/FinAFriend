@@ -19,7 +19,7 @@ export default class LunchScheduled extends React.Component<{}, IButtonText> {
     public render() {
         return (
             <div>
-                <Button bsStyle={this.state.buttonStyle} type={"button"} onClick={this.handleClick}>{this.state.buttonText}</Button>
+                <Button bsStyle={this.state.buttonStyle} type={"button"} onClick={this.handleClick}><i className="fas fa-calendar-alt fa-fw" /> {this.state.buttonText}</Button>
             </div>
         );
     }

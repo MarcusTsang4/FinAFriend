@@ -13,7 +13,7 @@ export default class ScheduleLunchButton extends React.Component<IScheduleButton
     public render() {
         return (
             <div>
-                <Button bsStyle={"primary"} onClick={this.handleClick}><i className="fas fa-calendar-alt" /> Schedule Lunch!</Button>
+                <Button bsStyle={"primary"} onClick={this.handleClick}><i className="fas fa-calendar-alt fa-fw" /> Schedule Lunch</Button>
             </div>
         );
     }

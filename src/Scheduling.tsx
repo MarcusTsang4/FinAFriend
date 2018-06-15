@@ -39,6 +39,7 @@ export default class Scheduling extends React.Component<ISchedulingProps> {
                 </Col>
 
             </Row>
+            <br />
             <form>
                 <FormGroup controlId={"partner"} >
                     <Row>
@@ -61,6 +62,7 @@ export default class Scheduling extends React.Component<ISchedulingProps> {
                         </Col>
                     </Row>
                 </FormGroup>
+                <br />
                 <LunchScheduled />
             </form>
         </div>

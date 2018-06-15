@@ -43,7 +43,7 @@ export default class ViewProfile extends React.Component<IProfileProps> {
 
                 </Row>
 
-
+                <br />
 
                 <Row>
                     <Col lg={12} md={12} sm={12}>
